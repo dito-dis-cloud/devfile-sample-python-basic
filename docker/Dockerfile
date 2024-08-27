@@ -9,6 +9,8 @@ FROM registry.access.redhat.com/ubi9/python-39:1-117.1684741281
 
 # Copy the content of the local src directory to the working directory
 #COPY . .
+COPY ./settings.py /opt/app-root/src/example
+COPY ./urls.py /opt/app-root/src/example
 
 # Install any dependencies
 #RUN \
