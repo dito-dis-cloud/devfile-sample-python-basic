@@ -21,7 +21,7 @@ RUN pip install django
 RUN pip install djangorestframework
 RUN django-admin startproject example .
 RUN ./manage.py migrate
-RUN ./manage.py createsuperuser 
+RUN ./manage.py createsuperuser
 
 # Specify the command to run on container start
 #CMD [ "python", "./app.py" ]
