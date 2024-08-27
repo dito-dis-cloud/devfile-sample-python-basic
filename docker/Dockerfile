@@ -11,17 +11,17 @@ FROM registry.access.redhat.com/ubi9/python-39:1-117.1684741281
 #COPY . .
 
 # Install any dependencies
-RUN \
+#RUN \
 #  if [ -f requirements.txt ]; \
 #    then pip install -r requirements.txt; \
 #  elif [ `ls -1q *.txt | wc -l` == 1 ]; \
 #    then pip install -r *.txt; \
 #  fi
-pip install django
-pip install djangorestframework
-django-admin startproject example .
-./manage.py migrate
-./manage.py createsuperuser 
+RUN pip install django
+RUN pip install djangorestframework
+RUN django-admin startproject example .
+RUN ./manage.py migrate
+RUN ./manage.py createsuperuser 
 
 # Specify the command to run on container start
 #CMD [ "python", "./app.py" ]
