@@ -22,8 +22,8 @@ RUN ./manage.py createsuperuser
 
 # Copy the content of the local src directory to the working directory
 #COPY . .
-COPY ./settings.py ./example
-COPY ./urls.py ./example
+COPY ./Docker/settings.py ./example
+COPY ./Docker/urls.py ./example
 
 # Specify the command to run on container start
 #CMD [ "python", "./app.py" ]
