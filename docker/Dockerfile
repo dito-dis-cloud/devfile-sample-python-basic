@@ -7,11 +7,6 @@ FROM registry.access.redhat.com/ubi9/python-39:1-117.1684741281
 # Set the working directory in the container
 #WORKDIR /projects
 
-# Copy the content of the local src directory to the working directory
-#COPY . .
-COPY ./settings.py /opt/app-root/src/example
-COPY ./urls.py /opt/app-root/src/example
-
 # Install any dependencies
 #RUN \
 #  if [ -f requirements.txt ]; \
@@ -24,6 +19,11 @@ RUN pip install djangorestframework
 RUN django-admin startproject example .
 RUN ./manage.py migrate
 RUN ./manage.py createsuperuser
+
+# Copy the content of the local src directory to the working directory
+#COPY . .
+COPY ./settings.py /opt/app-root/src/example
+COPY ./urls.py /opt/app-root/src/example
 
 # Specify the command to run on container start
 #CMD [ "python", "./app.py" ]
